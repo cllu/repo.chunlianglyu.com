@@ -1,5 +1,12 @@
 # My Maven Repository
 
+## Packages
+
+- `"com.chunlianglyu.bliki2" % "bliki2" % "3.2.0"`
+- `"com.chunlianglyu.sorm2" % "sorm2" %% "0.4.2"`
+- `"org.nlpcn" % "nlp-lang" % "1.0.2"`
+- `"org.ansj" % "ansj_seg" % "2.0.8"`
+
 ## Setup a sbt project
 
 Suppose the repo is checkout at `~/Projects/repo.chunlianglyu.com`, add the following line to the Build.scala file:
