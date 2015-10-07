@@ -3,7 +3,8 @@
 ## Packages
 
 - `"com.chunlianglyu.bliki2" % "bliki2" % "3.2.0"`
-- `"com.chunlianglyu.sorm2" % "sorm2" %% "0.4.2"`
+- `"com.chunlianglyu.sorm2" %% "sorm2" % "0.4.2"`
+- `"com.chunlianglyu.docopt2" %% "docopt2" % "0.1"`
 - `"org.nlpcn" % "nlp-lang" % "1.0.2"`
 - `"org.ansj" % "ansj_seg" % "3.0"`
 
@@ -19,7 +20,6 @@ To use the libraries in this repo, add the resolver:
 
     resolvers += "Chunliang's Maven Repository" at "https://repo.chunlianglyu.com"
     libraryDependencies += "com.chunlianglyu.sorm2" %% "sorm2" % "0.4.1"
-    libraryDependencies += "com.chunlianglyu.bliki2" %% "bliki2" % "3.2.0"
 
 ## Setup a maven project
 
