@@ -5,6 +5,7 @@
 - `"com.chunlianglyu.bliki2" % "bliki2" % "3.2.0"`
 - `"com.chunlianglyu.sorm2" %% "sorm2" % "0.4.2"`
 - `"com.chunlianglyu.docopt2" %% "docopt2" % "0.1"`
+- `"com.chunlianglyu.jlan" %% "alfresco-jlan-embed" % "5.2"`
 - `"org.nlpcn" % "nlp-lang" % "1.0.2"`
 - `"org.ansj" % "ansj_seg" % "3.0"`
 
