@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.chunlianglyu.jlan</groupId>
+  <artifactId>alfresco-jlan-embed</artifactId>
+  <version>5.2</version>
+
+  <packaging>pom</packaging>
+  <name>Alfresco JLan</name>
+  <description>Alfresco JLan</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <dependency.webscripts.version>5.1</dependency.webscripts.version>
+  </properties>
+
+  <url>http://www.alfresco.org/</url>
+  <inceptionYear>2005</inceptionYear>
+  <organization>
+    <name>Alfresco Software</name>
+    <url>http://www.alfresco.org/</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License v3.0 or later</name>
+      <url>http://www.gnu.org/licenses/lgpl-3.0-standalone.html</url>
+    </license>
+  </licenses>
+
+  <distributionManagement>
+    <repository>
+      <id>com.chunlianglyu.jlan</id>
+      <url>file:/Users/cllu/Projects/repo.chunlianglyu.com/</url>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <!--  TODO: Tests are NOT run since they are not JUnit
+        | Still need to port the logic of runtests.sh AKA
+        | java -cp ./jars/alfresco-jlan-full.jar:./libs/cryptix-jce-provider.jar org.alfresco.jlan.test.cluster.ClusterTest src/test/resources/config.xml
+         -->
+    <plugins>
+      <plugin>
+        <!-- Excludes as configured in original build.xml -->
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <configuration>
+              <excludes>
+                <exclude>org/alfresco/jlan/app/**</exclude>
+                <exclude>org/alfresco/jlan/server/filesys/db/*/*</exclude>
+                <exclude>org/alfresco/jlan/server/filesys/db/JdbcDBInterface.java</exclude>
+                <exclude>org/alfresco/jlan/smb/util/**</exclude>
+                <exclude>org/alfresco/jlan/util/db/**</exclude>
+                <exclude>org/alfresco/config/*/**</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <!-- Windows DLL to be packaged separately. Used in the distribution -->
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>create-dll-jar</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>windll</classifier>
+              <classesDirectory>${basedir}/jni</classesDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+    <!-- Defining version and some configuration of Maven plugins -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.6.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.6</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5.2</version>
+          <configuration>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+            <tagNameFormat>@{project.version}</tagNameFormat>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
